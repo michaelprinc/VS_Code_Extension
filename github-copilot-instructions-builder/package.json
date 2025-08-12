@@ -1,0 +1,52 @@
+{
+  "name": "github-copilot-instructions-builder",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/michaelprinc/VS_Code_Extension.git"
+  },
+  "displayName": "GitHub_Copilot_Instructions_Builder",
+  "description": "Extension that can build custom instructions quickly.",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.103.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:copilotInstructions.configure",
+    "onCommand:github-copilot-instructions-builder.helloWorld"
+  ],
+  "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "github-copilot-instructions-builder.helloWorld",
+        "title": "Hello World"
+      },
+      {
+        "command": "copilotInstructions.configure",
+        "title": "Configure Copilot Instructions"
+      }
+    ]
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "pretest": "npm run compile && npm run lint",
+    "lint": "eslint src",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+  "@types/vscode": "^1.102.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "@typescript-eslint/eslint-plugin": "^8.39.0",
+    "@typescript-eslint/parser": "^8.39.0",
+    "eslint": "^9.32.0",
+    "typescript": "^5.9.2",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
