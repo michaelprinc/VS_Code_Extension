@@ -6,7 +6,7 @@
   },
   "displayName": "GitHub_Copilot_Instructions_Builder",
   "description": "Extension that can build custom instructions quickly.",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "engines": {
     "vscode": "^1.103.0"
   },
@@ -14,32 +14,58 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:copilotInstructions.configure",
-    "onCommand:github-copilot-instructions-builder.helloWorld"
+    "onCommand:copilotInstructions.openPathConfig",
+    "onCommand:copilotInstructions.openInstructionSelection"
   ],
   "main": "./out/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "github-copilot-instructions-builder.helloWorld",
-        "title": "Hello World"
+        "command": "copilotInstructions.openPathConfig",
+        "title": "Copilot: Path Config"
       },
       {
-        "command": "copilotInstructions.configure",
-        "title": "Configure Copilot Instructions"
+        "command": "copilotInstructions.openInstructionSelection",
+        "title": "Copilot: Instruction Selection"
       }
-    ]
+    ],
+    "configuration": {
+      "title": "Copilot Instructions Composer",
+      "properties": {
+        "copilotComposer.repoConfigPath": {
+          "type": "string",
+          "default": ".github/instruction-config.json",
+          "description": "Path to the repository mapping file"
+        },
+        "copilotComposer.repoSetsDir": {
+          "type": "string",
+          "default": ".github/instruction-sets",
+          "description": "Folder where repo instruction set overrides live"
+        },
+        "copilotComposer.outputPath": {
+          "type": "string",
+          "default": ".github/copilot-instructions.md",
+          "description": "Final generated instruction file path"
+        },
+        "copilotComposer.autoCommit": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically commit changes to Git after apply"
+        }
+      }
+    }
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
+    "package": "vsce package",
     "pretest": "npm run compile && npm run lint",
     "lint": "eslint src",
     "test": "vscode-test"
   },
   "devDependencies": {
-  "@types/vscode": "^1.102.0",
+    "@types/vscode": "^1.102.0",
     "@types/mocha": "^10.0.10",
     "@types/node": "22.x",
     "@typescript-eslint/eslint-plugin": "^8.39.0",
@@ -47,6 +73,7 @@
     "eslint": "^9.32.0",
     "typescript": "^5.9.2",
     "@vscode/test-cli": "^0.0.11",
-    "@vscode/test-electron": "^2.5.2"
+    "@vscode/test-electron": "^2.5.2",
+    "vsce": "^2.15.0"
   }
 }

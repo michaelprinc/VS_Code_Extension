@@ -1,0 +1,18 @@
+{
+  "versions": {
+    "base-short": "v1.0.0",
+    "base-standard": "v1.0.0",
+    "code-review": "v1.0.0",
+    "security": "v1.0.0",
+    "performance": "v1.0.0",
+    "python-ds": "v1.0.0"
+  },
+  "paths": {
+    "base-short": ".github/instruction-sets/base-short.md",
+    "base-standard": ".github/instruction-sets/base-standard.md",
+    "code-review": ".github/instruction-sets/code-review.md",
+    "security": ".github/instruction-sets/security.md",
+    "performance": ".github/instruction-sets/performance.md",
+    "python-ds": ".github/instruction-sets/python-ds.md"
+  }
+}

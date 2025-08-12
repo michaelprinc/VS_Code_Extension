@@ -1,34 +1,29 @@
 # GitHub Copilot Instructions Builder
 
-This VS Code extension helps you quickly build and manage custom Copilot instructions for your repository.
+This VS Code extension helps you compose a `.github/copilot-instructions.md` file from reusable instruction blocks.
 
 ## Features
 
-- Adds a command: **Configure Copilot Instructions** (`copilotInstructions.configure`)
-- Lets you select instruction sets (General, Code Review, Security & Secrets, Performance, Python Data Science)
-- Merges selected instruction blocks from either your repo or bundled templates
-- Writes/backs up `.github/copilot-instructions.md` in your workspace
-- Opens the result for review and editing
+- **Copilot: Path Config** (`copilotInstructions.openPathConfig`) – configure where to read/write instruction files and opt into auto-commit.
+- **Copilot: Instruction Selection** (`copilotInstructions.openInstructionSelection`) – pick a base set and add-ons, preview the merged result with token estimates, then apply it to your repo.
+- Loads overrides from `.github/instruction-sets/*.md` or falls back to bundled templates.
+- Backs up existing output before writing and can auto-commit changes.
 
 ## Usage
 
-1. Open the Command Palette (`Ctrl+Shift+P`)
-2. Run `Configure Copilot Instructions`
-3. Select the instruction sets you want to include
-4. The extension will:
-	- Load each block from `.github/instruction-sets/<id>.md` (if present), or from the extension's bundled templates
-	- Merge them in a stable order (General always first)
-	- Backup any existing `.github/copilot-instructions.md` to `.bak`
-	- Write the new file and open it for you
+1. Open the Command Palette (`Ctrl+Shift+P`).
+2. Run **Copilot: Path Config** to ensure paths and settings are correct.
+3. Run **Copilot: Instruction Selection**, choose the desired instruction sets, preview, and click **Apply**.
 
 ## Requirements
 
-- Node.js and npm installed for development
-- No special requirements for users
+- Node.js and npm installed for development.
+- No special requirements for users.
 
 ## Extension Commands
 
-- `copilotInstructions.configure`: Main command to configure and generate the instructions file
+- `copilotInstructions.openPathConfig`
+- `copilotInstructions.openInstructionSelection`
 
 ## Development
 
